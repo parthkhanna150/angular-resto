@@ -9,3 +9,5 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
+//AppModule is the name given to the root module
+//this bootstraps our app
