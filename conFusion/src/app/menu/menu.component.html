@@ -3,17 +3,42 @@
 	 fxLayoutGap="10px">
 <!-- orientation of content (in this case vertical) AND gap between each item -->
 
-	 <md-list fxFlex>
+	 <div fxFlex>
+	 	<div>
+	 		<h3>Menu</h3>
+	 		<hr>
+	 	</div>
+	 </div>
+	 <div fxFlex>
+	 <md-grid-list cols="2" rowHeight="200px">
 <!-- fxFlex attribute means that this whole thing will be laid out as one piece -->
 <!-- *ngFor is structural directive - alows you to iterate over an array of items -->
-		<md-list-item *ngFor="let dish of dishes">
+		<md-grid-tile *ngFor="let dish of dishes">
 		<!-- basically like a for loop -->
-			<img md-list-avatar src={{dish.image}} alt={{dish.name}}>
-			<h1 md-line>{{dish.name}}</h1>
-			<p md-line>
-				<span> {{dish.description}} </span>
-			</p>
-		</md-list-item>
-	 </md-list>
+			<img height="200px" src={{dish.image}} alt={{dish.name}}>
+				<md-grid-tile-footer>
+					<h1 md-line>{{dish.name | uppercase}}</h1>
+				</md-grid-tile-footer>
+		</md-grid-tile>
+	 </md-grid-list>
+	 </div>
+
+	 <div fxFlex *ngIf="selectedDish">
+	 	<md-card>
+	 		<md-card-header>
+	 			<md-card-title>
+	 				<h3>{{selectedDish.name | uppercase}}</h3>
+	 			</md-card-title>
+	 		</md-card-header>
+	 		<img md-card-image src={{selectedDish.image}} alt={{selectedDish.name}}>
+	 		<md-card-content>
+	 			<p>{{selectedDish.description}}</p>
+	 		</md-card-content>
+	 		<md-card-actions>
+	 			<button md-button>LIKE</button>
+	 			<button md-button>SHARE</button>
+	 		</md-card-actions>
+	 	</md-card>
+	 </div>
 
 </div>
