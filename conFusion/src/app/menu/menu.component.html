@@ -1,0 +1,19 @@
+<div class="container"
+	 fxLayout="column" 
+	 fxLayoutGap="10px">
+<!-- orientation of content (in this case vertical) AND gap between each item -->
+
+	 <md-list fxFlex>
+<!-- fxFlex attribute means that this whole thing will be laid out as one piece -->
+<!-- *ngFor is structural directive - alows you to iterate over an array of items -->
+		<md-list-item *ngFor="let dish of dishes">
+		<!-- basically like a for loop -->
+			<img md-list-avatar src={{dish.image}} alt={{dish.name}}>
+			<h1 md-line>{{dish.name}}</h1>
+			<p md-line>
+				<span> {{dish.description}} </span>
+			</p>
+		</md-list-item>
+	 </md-list>
+
+</div>
