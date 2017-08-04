@@ -11,13 +11,15 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 //AppCompponent class is exported in app.component.ts
-import { MenuComponent } from './menu/menu.component'; 
+import { MenuComponent } from './menu/menu.component';
+import { DishdetailComponent } from './dishdetail/dishdetail.component'; 
 //AppCompponent class is exported in menu.component.ts
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    DishdetailComponent
   ],
   imports: [
     BrowserModule,

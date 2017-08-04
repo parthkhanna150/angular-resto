@@ -5,7 +5,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: ' app-root',
   templateUrl: './app.component.html', //you can write direct code in ` ` also (inline template)
   styleUrls: ['./app.component.scss']
 })
