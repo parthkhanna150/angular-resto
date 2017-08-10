@@ -13,7 +13,7 @@
 	 <md-grid-list cols="2" rowHeight="200px">
 <!-- fxFlex attribute means that this whole thing will be laid out as one piece -->
 <!-- *ngFor is structural directive - alows you to iterate over an array of items -->
-		<md-grid-tile *ngFor="let dish of dishes">
+		<md-grid-tile *ngFor="let dish of dishes" (click) = "onSelect(dish)">
 		<!-- basically like a for loop -->
 			<img height="200px" src={{dish.image}} alt={{dish.name}}>
 				<md-grid-tile-footer>
@@ -23,7 +23,7 @@
 	 </md-grid-list>
 	 </div>
 
-	 <app-dishdetail></app-dishdetail>
+	 <app-dishdetail [dish]="selectedDish"></app-dishdetail>
 <!-- 	 <div fxFlex *ngIf="selectedDish">
 	 	<md-card>
 	 		<md-card-header>
