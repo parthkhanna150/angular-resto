@@ -54,10 +54,10 @@ fxLayoutGap="10px">
     </div>
 
 
-    <div fxFlex>
+    <div fxFlex *ngIf="leaders">
       <h2>Corporate Leadership</h2>
       <md-list>
-      <md-list-item *ngFor="let key of leaders">
+        <md-list-item *ngFor="let key of leaders">
           <img md-list-avatar src={{key.image}} alt={{key.name}}>
           <h1 md-line> {{key.name}} {{key.abbr}} </h1>
           <h2 md-line> {{key.designation}} </h2>
@@ -66,5 +66,8 @@ fxLayoutGap="10px">
           </p>
         </md-list-item>
       </md-list>
+    </div>
+    <div [hidden]="leaders">
+      <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
     </div>
   </div>

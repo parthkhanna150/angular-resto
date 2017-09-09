@@ -1,25 +1,28 @@
 <div class="container"
-	 fxLayout="column" 
-	 fxLayoutGap="10px">
+fxLayout="column" 
+fxLayoutGap="10px">
 <!-- orientation of content (in this case vertical) AND gap between each item -->
 
-	 <div fxFlex>
-	 	<div>
-	 		<h3>Menu</h3>
-	 		<hr>
-	 	</div>
-	 </div>
-	 <div fxFlex>
-	 <md-grid-list cols="2" rowHeight="200px">
-<!-- fxFlex attribute means that this whole thing will be laid out as one piece -->
-<!-- *ngFor is structural directive - alows you to iterate over an array of items -->
+<div fxFlex>
+	<div>
+		<h3>Menu</h3>
+		<hr>
+	</div>
+</div>
+<div fxFlex *ngIf="dishes">
+	<md-grid-list cols="2" rowHeight="200px">
+		<!-- fxFlex attribute means that this whole thing will be laid out as one piece -->
+		<!-- *ngFor is structural directive - alows you to iterate over an array of items -->
 		<md-grid-tile *ngFor="let dish of dishes"  [routerLink]="['/dishdetail', dish.id]">
-		<!-- basically like a for loop -->
+			<!-- basically like a for loop -->
 			<img height="200px" src={{dish.image}} alt={{dish.name}}>
-				<md-grid-tile-footer>
-					<h1 md-line>{{dish.name | uppercase}}</h1>
-				</md-grid-tile-footer>
+			<md-grid-tile-footer>
+				<h1 md-line>{{dish.name | uppercase}}</h1>
+			</md-grid-tile-footer>
 		</md-grid-tile>
-	 </md-grid-list>
-	 </div>
+	</md-grid-list>
+</div>
+<div [hidden]="dishes">
+	<md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+</div>
 </div>
